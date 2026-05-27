@@ -1,0 +1,8 @@
+{
+  "name": "Шпиц Апель 1",
+  "description": "Сайт-визитка и шутливый лендинг пушистой звезды мирового масштаба — шпица по имени Апель.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
+
+/* Main CSS configurations to reinforce Spitz Apel's style */
+
+body {
+  background-color: #fcf9f5; /* Warm cream background */
+  color: #2b231c; /* Deep warm charcoal */
+}
+
+/* Custom radial backdrop representing the royal room pattern */
+.pattern-bg {
+  background-color: #fcf9f5;
+  background-image: radial-gradient(#eadad2 1.2px, transparent 1.2px), radial-gradient(#eadad2 1.2px, #fcf9f5 1.2px);
+  background-size: 48px 48px;
+  background-position: 0 0, 24px 24px;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #dfcfbe;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #cbbaa5;
+}
+
+/* Animation presets */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 15s linear infinite;
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0) rotate(15deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(12deg);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 4s ease-in-out infinite;
+}
+
+@keyframes dog-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-dog-float {
+  animation: dog-float 6s ease-in-out infinite;
+}
+
+/* Fade-in elements transition */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Modal animation states */
+.modal-backdrop {
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+/* Chewing effect keyframes */
+@keyframes chewing {
+  0%, 100% {
+    transform: scale(1) rotate(0deg) translateY(0);
+  }
+  20% {
+    transform: scale(1.15) rotate(5deg) translateY(-6px);
+  }
+  40% {
+    transform: scale(0.95) rotate(-5deg) translateY(2px);
+  }
+  60% {
+    transform: scale(1.08) rotate(3deg) translateY(-2px);
+  }
+  80% {
+    transform: scale(0.98) rotate(-2deg) translateY(0);
+  }
+}
+
+.chewing {
+  animation: chewing 0.9s ease-in-out;
+}
+
+/* Range input styling overrides on mobile */
+input[type="range"] {
+  background: #f3dfd1;
+}
+input[type="range"]::-webkit-slider-thumb {
+  background: #f59e0b;
+  border: 2px solid #fff;
+  border-radius: 9999px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  appearance: none;
+}
