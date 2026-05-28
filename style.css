@@ -3,11 +3,10 @@
 /* Main CSS configurations to reinforce Spitz Apel's style */
 
 body {
-  background-color: #fcf9f5; /* Warm cream background */
-  color: #2b231c; /* Deep warm charcoal */
+  background-color: #fcf9f5;
+  color: #2b231c;
 }
 
-/* Custom radial backdrop representing the royal room pattern */
 .pattern-bg {
   background-color: #fcf9f5;
   background-image: radial-gradient(#eadad2 1.2px, transparent 1.2px), radial-gradient(#eadad2 1.2px, #fcf9f5 1.2px);
@@ -15,29 +14,26 @@ body {
   background-position: 0 0, 24px 24px;
 }
 
-/* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #dfcfbe;
   border-radius: 5px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #cbbaa5;
 }
 
-/* Animation presets */
 @keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .animate-spin-slow {
@@ -45,12 +41,8 @@ body {
 }
 
 @keyframes bounce-slow {
-  0%, 100% {
-    transform: translateY(0) rotate(15deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(12deg);
-  }
+  0%, 100% { transform: translateY(0) rotate(15deg); }
+  50% { transform: translateY(-8px) rotate(12deg); }
 }
 
 .animate-bounce-slow {
@@ -58,19 +50,14 @@ body {
 }
 
 @keyframes dog-float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .animate-dog-float {
   animation: dog-float 6s ease-in-out infinite;
 }
 
-/* Fade-in elements transition */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -86,7 +73,6 @@ body {
   animation: fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Modal animation states */
 .modal-backdrop {
   transition: opacity 0.3s ease;
 }
@@ -95,7 +81,6 @@ body {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
 
-/* Chewing effect keyframes */
 @keyframes chewing {
   0%, 100% {
     transform: scale(1) rotate(0deg) translateY(0);
@@ -118,10 +103,10 @@ body {
   animation: chewing 0.9s ease-in-out;
 }
 
-/* Range input styling overrides on mobile */
 input[type="range"] {
   background: #f3dfd1;
 }
+
 input[type="range"]::-webkit-slider-thumb {
   background: #f59e0b;
   border: 2px solid #fff;
@@ -130,4 +115,56 @@ input[type="range"]::-webkit-slider-thumb {
   height: 16px;
   cursor: pointer;
   appearance: none;
+}
+
+/* =========================
+   FIX: блок "Внутрисемейная Коалиция"
+========================= */
+
+section {
+  overflow: visible !important;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Чиним возможные контейнеры блока */
+#team,
+.team,
+.coalition,
+.family-section,
+.family-coalition {
+  height: auto !important;
+  min-height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+}
+
+/* Чиним картинку внутри проблемного блока */
+#team img,
+.team img,
+.coalition img,
+.family-section img,
+.family-coalition img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 320px !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  border-radius: 24px !important;
+}
+
+/* Если изображение случайно зажато внутри div */
+#team div,
+.team div,
+.coalition div,
+.family-section div,
+.family-coalition div {
+  max-height: none !important;
 }
