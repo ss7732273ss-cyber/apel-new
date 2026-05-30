@@ -1,0 +1,1251 @@
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Шпиц Апель I — Самая Сладкая Булочка в Галактике!</title>
+    
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Customized Tailwind CDN extended parameters for exact font and size configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              mono: ["JetBrains Mono", "monospace"],
+              serif: ["Playfair Display", "serif"],
+              display: ["Comfortaa", "sans-serif"],
+            },
+            fontSize: {
+              '3xs': '0.55rem',
+              '2xs': '0.7rem',
+            },
+            colors: {
+              amber: {
+                950: '#1c130c',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Static stylesheet with pattern-bg and chew animations -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="min-h-screen bg-[#fcf9f5] pattern-bg selection:bg-amber-200 text-[#2b231c] font-sans antialiased">
+    
+    <!-- 1. Header (Навигация) -->
+    <header class="sticky top-0 z-40 bg-[#fcf9f5]/85 backdrop-blur-md border-b border-amber-100/50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+          <span class="text-2xl animate-spin-slow">🍊</span>
+          <span class="font-serif font-black text-xl md:text-2xl tracking-tight text-amber-950 flex items-center gap-1.5">
+            АПЕЛЬ I <span class="text-[9px] font-mono font-bold bg-amber-500 text-white px-2 py-0.5 rounded-full uppercase scale-90">LIVE</span>
+          </span>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-6 text-xs font-mono font-bold tracking-wider uppercase text-amber-900/80">
+          <button data-scroll="origin-story" class="hover:text-amber-600 transition-colors cursor-pointer">История</button>
+          <button data-scroll="photo-chronicles" class="hover:text-amber-600 transition-colors cursor-pointer">Хроники 📸</button>
+          <button data-scroll="superpowers" class="hover:text-amber-600 transition-colors cursor-pointer">Характеристики</button>
+          <button data-scroll="allies-section" class="hover:text-amber-600 transition-colors cursor-pointer">Команда</button>
+          <button data-scroll="schedule-section" class="hover:text-amber-600 transition-colors cursor-pointer">Рутина</button>
+          <button data-scroll="treat-simulator" class="hover:text-amber-600 transition-colors cursor-pointer">Симулятор</button>
+          <button data-scroll="certificate-generator" class="hover:text-amber-600 transition-colors cursor-pointer">Канцелярия</button>
+          <button class="trigger-bark py-1.5 px-3 bg-amber-500 hover:bg-amber-600 active:scale-95 text-white rounded-lg text-[10px] uppercase font-bold transition-all shadow-sm cursor-pointer">
+            Тявкнуть! 🔊
+          </button>
+        </nav>
+
+        <!-- Mobile Hamburguer and instant bark -->
+        <div class="md:hidden flex items-center gap-2">
+          <button class="trigger-bark py-1 px-2.5 bg-amber-500 text-white rounded-lg text-[11px] font-bold font-mono">
+            Тявк! 🔊
+          </button>
+          <button id="mobile-menu-toggle" class="p-2 text-amber-950 hover:bg-amber-100 rounded-lg cursor-pointer">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu dropdown -->
+      <div id="mobile-menu-dropdown" class="hidden md:hidden border-t border-amber-100/50 bg-[#fcf9f5] px-4 py-4 space-y-2 text-sm font-mono font-bold uppercase text-amber-900">
+        <button data-scroll="origin-story" class="block w-full text-left py-2 hover:bg-amber-50 px-2 rounded">История</button>
+        <button data-scroll="photo-chronicles" class="block w-full text-left py-2 hover:bg-amber-50 px-2 rounded">Хроники 📸</button>
+        <button data-scroll="superpowers" class="block w-full text-left py-2 hover:bg-amber-50 px-2 rounded">Характеристики</button>
+        <button data-scroll="allies-section" class="block w-full text-left py-2 hover:bg-amber-50 px-2 rounded">Команда</button>
+        <button data-scroll="schedule-section" class="block w-full text-left py-2 hover:bg-amber-50 px-2 rounded">Рутина</button>
+        <button data-scroll="treat-simulator" class="block w-full text-left py-2 hover:bg-amber-50 px-2 rounded">Симулятор</button>
+        <button data-scroll="certificate-generator" class="block w-full text-left py-2 hover:bg-amber-50 px-2 rounded">Канцелярия</button>
+      </div>
+    </header>
+
+    <!-- 2. Hero Section (Главный экран) -->
+    <section class="relative overflow-hidden py-10 md:py-16 lg:py-24" id="hero">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Texts -->
+          <div class="lg:col-span-7 space-y-6 md:space-y-8 text-center lg:text-left">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-100 text-amber-900 rounded-full font-mono text-xs font-bold uppercase tracking-wider">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600 animate-spin-slow"></i>
+              Мировая знаменитость на диване
+            </div>
+
+            <div class="space-y-3">
+              <h1 class="text-4xl sm:text-5xl md:text-6xl font-black font-serif tracking-tight text-amber-955 leading-tight">
+                АПЕЛЬ I <br/>— Самая Сладкая <br class="hidden sm:inline"/>Булочка в Галактике!
+              </h1>
+              <p class="text-sm md:text-base text-amber-950/75 max-w-xl mx-auto lg:mx-0 font-display leading-relaxed">
+                Раньше он сидел в приюте для животных, а теперь великодушно руководит нашей семьей, инспектирует сырные продукты и профессионально пушит штанишки на диване.
+              </p>
+            </div>
+
+            <!-- Meme stats badge -->
+            <div class="grid grid-cols-3 gap-2.5 max-w-md mx-auto lg:mx-0 font-mono text-3xs tracking-widest text-[#2b231c]/70">
+              <div class="bg-white border border-amber-100/80 p-2.5 rounded-xl uppercase text-center shadow-sm">
+                <span class="block text-base md:text-lg font-bold text-rose-500 font-sans mb-0.5">365 дней</span>
+                любви и сырка
+              </div>
+              <div class="bg-white border border-amber-100/80 p-2.5 rounded-xl uppercase text-center shadow-sm">
+                <span class="block text-base md:text-lg font-bold text-amber-600 font-sans mb-0.5">14 000+</span>
+                сытых вздохов
+              </div>
+              <div class="bg-white border border-amber-100/80 p-2.5 rounded-xl uppercase text-center shadow-sm">
+                <span class="block text-base md:text-lg font-bold text-amber-800 font-sans mb-0.5">🐾 100%</span>
+                хороший пес
+              </div>
+            </div>
+
+            <!-- Hero CTA buttons -->
+            <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center">
+              <button
+                id="btn-hero-pat"
+                class="w-full sm:w-auto px-6 py-3.5 bg-rose-500 hover:bg-rose-600 active:scale-95 text-white font-black font-display rounded-2xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer text-sm"
+              >
+                <i data-lucide="heart" class="w-4 h-4 fill-current animate-pulse text-white"></i>
+                Погладить Его Величество!
+              </button>
+              <button
+                data-scroll="certificate-generator"
+                class="w-full sm:w-auto px-6 py-3.5 bg-white hover:bg-amber-100/50 active:scale-95 text-amber-950 font-bold font-display rounded-2xl shadow-sm hover:shadow-md border border-amber-200 transition-all flex items-center justify-center gap-2 cursor-pointer text-sm"
+              >
+                <i data-lucide="award" class="w-4 h-4 text-amber-600"></i>
+                Выпросить грамоту сырка
+              </button>
+            </div>
+            
+            <div class="text-[10px] text-amber-900/50 font-mono italic max-w-sm mx-auto lg:mx-0">
+              ⭐ *Примечание: нажатие кнопок симулирует приток любви. Пышность шерсти может увеличиться.
+            </div>
+          </div>
+
+          <!-- Main Hero Image representing the spitz pomeranian -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="animate-dog-float relative w-80 sm:w-96 aspect-[11/12] bg-gradient-to-b from-amber-100 to-amber-200 rounded-3xl p-4 shadow-2xl border border-amber-200/55">
+              <!-- Crown asset overlay badge -->
+              <span class="absolute -top-7 -right-5 text-6xl rotate-12 animate-bounce-slow z-20">👑</span>
+              
+              <!-- Spitz dog portrait -->
+              <div class="w-full h-full rounded-2xl overflow-hidden shadow-inner relative group bg-amber-50">
+                <img 
+                  src="assets/images/hero_spitz_apel_1779902388104.png" 
+                  alt="Портрет Шпица Апеля" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-amber-950/60 via-transparent to-transparent pointer-events-none" />
+                
+                <!-- Caption tag -->
+                <div class="absolute bottom-4 inset-x-4 text-white">
+                  <p class="font-serif italic font-bold text-sm tracking-wide">Апель I Ослепительный</p>
+                  <p class="text-[10px] font-mono opacity-80 mt-0.5 uppercase tracking-wider">Амбассадор плавленного сырка и уюта</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Backdrop fuzzy light sphere background effect -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-140 h-140 bg-amber-200/15 rounded-full filter blur-3xl -z-20 pointer-events-none" />
+    </section>
+
+    <!-- Floating hearts animation overlay container -->
+    <div id="hearts-container" class="fixed inset-0 pointer-events-none z-50"></div>
+
+    <!-- 3. True Biography / Origin Story (Из приюта во дворец) -->
+    <section class="py-12 md:py-20 bg-amber-50/20 border-y border-amber-100" id="origin-story">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 items-start">
+          
+          <!-- Basket Bun Spitz Portrait illustration -->
+          <div class="flex justify-center order-last md:order-first">
+            <div class="relative w-52 md:w-64 lg:w-72 aspect-square bg-white p-3 rounded-2xl shadow-xl border border-amber-100/70 transition-transform duration-500">
+              <span class="absolute -top-3 -left-2 text-2xl z-20">🥯</span>
+              <div class="rounded-xl overflow-hidden aspect-square bg-amber-50 relative">
+                <img 
+                  src="assets/images/apel_sweet_bun_1779902428898.png" 
+                  alt="Апель Сладкая булочка" 
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-amber-950/20 via-transparent to-transparent pointer-events-none" />
+              </div>
+              <div class="text-center pt-2.5">
+                <span class="text-[11px] font-mono font-bold tracking-wider text-amber-900/60 uppercase">
+                  Апель в образе Сдобной Булки
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Biography text content -->
+          <div class="space-y-4">
+            <span class="text-[10px] md:text-xs font-mono font-bold py-1 px-3 bg-amber-100 text-amber-900 rounded-full uppercase tracking-wider">
+              История успеха
+            </span>
+            <h2 class="text-2xl md:text-3xl font-extrabold font-serif text-amber-950 leading-snug">
+              Этот прохвост "поймал удачу за хвост": <br class="hidden md:inline"/>Удивительный Год Апеля
+            </h2>
+            <p class="text-xs md:text-sm text-[#2b231c]/90 leading-relaxed font-sans">
+              Всего 365 дней назад Апель тосковал за решеткой приюта и мечтал хотя бы о крошечной сушке. Но судьба улыбнулась ему: наша семья влюбилась в этот бежевый пумпончик с первой секунды! Из «ничего» — в «всё включено»!
+            </p>
+            
+            <div class="space-y-3 font-display">
+              <div class="flex gap-3 items-start">
+                <div class="p-1 px-1.5 bg-green-100 text-green-700 rounded-lg text-xs font-bold font-mono mt-0.5 flex items-center justify-center">✓</div>
+                <div>
+                  <h5 class="text-xs font-bold font-mono uppercase text-amber-950">Приютский период:</h5>
+                  <p class="text-xs text-amber-900/80">Пыльные штанишки, скромный сон клубочком, жесткая миска и тусклый свет вольера.</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <div class="p-1 px-1.5 bg-amber-100 text-amber-700 rounded-lg text-xs font-bold font-mono mt-0.5 flex items-center justify-center">✓</div>
+                <div>
+                  <h5 class="text-xs font-bold font-mono uppercase text-amber-950">Нынешний Олимп королевства:</h5>
+                  <p class="text-xs text-amber-900/80">Ортопедическая подушка, сыр голландский высшего качества, личные ухочесатели 24/7 и собственный сайт.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-amber-100/40 p-4 border border-amber-200/50 rounded-xl">
+              <p class="text-xs italic text-amber-900 leading-relaxed font-serif">
+                «Мы никогда не пожалели об этом шаге. Собаки из приюта — самые преданные и любящие существа. Они понимают цену уюта, и готовы подарить всю свою любовь!»
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3.5. Royal Photo Chronicles (Королевский фотоальбом) -->
+    <section class="py-12 md:py-20 bg-gradient-to-b from-amber-50/10 to-[#fcf9f5] border-b border-amber-100" id="photo-chronicles">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-amber-100">
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-100 text-amber-900 rounded-full font-mono text-xs font-bold uppercase tracking-wider mb-2.5">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600 animate-pulse"></i>
+              Архивные Снимки Семьи
+            </div>
+            <h3 class="text-2xl md:text-3xl font-black font-serif text-amber-950">
+              Королевская Фотохроника
+            </h3>
+            <p class="text-sm text-amber-900/75 mt-2 font-display">
+              Каждая из этих фотографий — задокументированный исторический факт величия Апеля и его союзников. Нажмите на любой снимок, чтобы изучить скрытые архивы, мысленным обзором заглянуть во внутренний монолог шпица и почитать мнения кота!
+            </p>
+          </div>
+
+          <!-- Dynamic Polaroids Grid served by script.js -->
+          <div id="polaroids-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Superpowers / RPG Stats Dashboard (Характеристики) -->
+    <section class="py-12 md:py-20" id="superpowers">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-xl mx-auto mb-10 md:mb-14">
+          <span class="text-xs font-mono py-1 px-3 bg-amber-100 text-amber-805 rounded-full font-bold uppercase tracking-widest">
+            Спецификации и метрики
+          </span>
+          <h2 class="text-3xl md:text-4xl font-extrabold font-serif text-amber-955 mt-1">
+            Технические Индексы Мальчика
+          </h2>
+          <p class="text-xs md:text-sm text-amber-900/70 mt-2 font-display">
+            Мы оцифровали характеристики Апеля, чтобы оценить его готовность к международному доминированию. Метрики подтверждены кошачьей экспертной комиссией:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Card Fur -->
+          <div class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md border border-amber-100/70 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[10px] font-mono font-bold text-amber-900/60 uppercase">Пушистость брюшка</span>
+                <span class="text-xs font-extrabold text-rose-500 font-mono bg-rose-50 px-1.5 py-0.5 rounded">1000%</span>
+              </div>
+              <p class="text-[11px] text-amber-950/70 italic mt-2 font-sans leading-relaxed">
+                «Сравнима со спелым хлопковым облаком премиум качества»
+              </p>
+            </div>
+            <div class="mt-4">
+              <div class="w-full bg-amber-50 rounded-full h-1.5 overflow-hidden">
+                <div class="h-full bg-amber-500 rounded-full" style="width: 100%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Bark -->
+          <div class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md border border-amber-100/70 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[10px] font-mono font-bold text-amber-900/60 uppercase">Громкость тявканья</span>
+                <span class="text-xs font-extrabold text-rose-500 font-mono bg-rose-50 px-1.5 py-0.5 rounded">120 дБ</span>
+              </div>
+              <p class="text-[11px] text-amber-950/70 italic mt-2 font-sans leading-relaxed">
+                «Уровень взлетающего истребителя СУ-35 при открытии новой пачки плавленного сыра»
+              </p>
+            </div>
+            <div class="mt-4">
+              <div class="w-full bg-amber-50 rounded-full h-1.5 overflow-hidden">
+                <div class="h-full bg-amber-500 rounded-full" style="width: 900%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Eyes -->
+          <div class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md border border-amber-100/70 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[10px] font-mono font-bold text-amber-900/60 uppercase">Просительный взгляд</span>
+                <span class="text-xs font-extrabold text-rose-500 font-mono bg-rose-50 px-1.5 py-0.5 rounded">∞ Карат</span>
+              </div>
+              <p class="text-[11px] text-amber-950/70 italic mt-2 font-sans leading-relaxed">
+                «Мгновенно растапливает кусок сыра любой плотности и маркировки»
+              </p>
+            </div>
+            <div class="mt-4">
+              <div class="w-full bg-amber-50 rounded-full h-1.5 overflow-hidden">
+                <div class="h-full bg-amber-500 rounded-full" style="width: 100%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Tail -->
+          <div class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md border border-amber-100/70 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[10px] font-mono font-bold text-amber-900/60 uppercase">Виляние хвостом</span>
+                <span class="text-xs font-extrabold text-rose-500 font-mono bg-rose-50 px-1.5 py-0.5 rounded">65 Гц</span>
+              </div>
+              <p class="text-[11px] text-amber-950/70 italic mt-2 font-sans leading-relaxed">
+                «Хвостик-колечко способен генерировать локальные ураганы счастья»
+              </p>
+            </div>
+            <div class="mt-4">
+              <div class="w-full bg-amber-50 rounded-full h-1.5 overflow-hidden">
+                <div class="h-full bg-amber-500 rounded-full" style="width: 95%"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Confirm Bark Button block -->
+        <div class="mt-10 bg-gradient-to-r from-amber-950 to-amber-900 text-white rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full -mr-10 -mt-10 pointer-events-none" />
+          <div class="space-y-1">
+            <h4 class="text-lg md:text-xl font-serif font-bold text-amber-100 tracking-tight">Хотите подтвердить квалификацию шпица?</h4>
+            <p class="text-xs text-amber-200/70 font-mono font-light">Нажмите на кнопку и Его Рыжесть дважды издаст звенящий тявк.</p>
+          </div>
+          <button
+            class="trigger-bark py-3 px-6 bg-amber-500 hover:bg-amber-600 active:scale-95 text-white font-bold font-display rounded-xl text-xs uppercase tracking-wider transition-all shadow-md shrink-0 cursor-pointer"
+          >
+            Подтвердить Тявком! 🔊
+          </button>
+        </div>
+      </div>
+    </section>
+
+   <!-- 5. Coalition Area (Кот и Попугай) -->
+<section class="py-12 md:py-20 bg-amber-50/20 border-y border-amber-100" id="allies-section">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="text-xs font-mono py-1 px-3 bg-amber-100 text-amber-800 rounded-full font-bold uppercase tracking-widest">
+        Приближенные и Оппозиция
+      </span>
+      <h3 class="text-2xl md:text-3xl font-black font-serif text-amber-950 mt-2">
+        Внутрисемейная Коалиция
+      </h3>
+      <p class="text-sm text-amber-900/70 mt-2 font-display">
+        Апель живет в квартире не один. Его окружают преданные соратники и... крайне подозрительный чёрно-белый авторитет. Познакомитесь с правящей кликой:
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      
+      <!-- Left Side: Allies Portrait -->
+      <div class="lg:col-span-5 flex flex-col justify-between bg-amber-50/30 rounded-2xl p-5 border border-amber-100 overflow-hidden relative">
+        <div class="absolute top-0 left-0 w-full h-full pattern-bg opacity-30 -z-10"></div>
+        
+        <div class="relative rounded-xl overflow-hidden shadow-md mb-4 group h-[320px] sm:h-[380px] lg:h-[420px]">
+          <img 
+            src="assets/images/allies_koks_kroshik_1779902410819.png" 
+            alt="Кот Кокс и Попугай Крошик на диване" 
+            class="w-full h-full object-cover block group-hover:scale-105 transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-amber-950/40 via-transparent to-transparent pointer-events-none"></div>
+          <div class="absolute bottom-3 left-3 text-white font-mono text-[10px] bg-amber-950/80 px-2.5 py-1 rounded-sm flex items-center gap-1">
+            <i data-lucide="swords" class="w-3.5 h-3.5 text-rose-300"></i>
+            Эксклюзивные кадры оппозиции
+          </div>
+        </div>
+
+        <div class="bg-white/90 backdrop-blur-xs border border-amber-100 p-4 rounded-xl text-xs space-y-2">
+          <div class="font-bold text-amber-950 uppercase tracking-wide font-mono flex items-center justify-between">
+            <span>Сводка разведки шпица</span>
+            <span class="text-[9px] text-rose-600 bg-rose-50 px-1.5 rounded font-black font-mono">Конфиденциально</span>
+          </div>
+          <p class="text-amber-900/80 leading-relaxed font-sans">
+            «Кот и попугай организовали секретный пакт. Цель пакта — отвлечь хозяина шуршанием перьев, пока кот стягивает сосиску из тарелки. Шпиц в схему не допущен из-за излишней честности и звонкого лая.»
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Side: Interactive stats of Koks and Kroshik -->
+      <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
+        
+        <!-- KOKS THE CAT -->
+        <div class="bg-slate-50 border border-slate-200/60 rounded-2xl p-5 relative overflow-hidden shadow-xs">
+          <div class="absolute top-0 right-0 p-3 bg-slate-200/40 text-slate-700 rounded-bl-xl font-bold font-mono text-3xs uppercase tracking-widest">
+            Спецслужба / Соперник
+          </div>
+          
+          <div class="flex gap-4 items-start">
+            <div class="text-4xl bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm select-none">
+              😼
+            </div>
+            <div class="flex-1 space-y-1.5">
+              <h4 class="text-base md:text-lg font-bold font-display text-slate-950 flex items-center gap-2">
+                Кот Кокс
+                <span class="text-[10px] bg-slate-200 text-slate-700 px-2 py-0.5 rounded-full font-semibold">Серый Кардинал</span>
+              </h4>
+              <p class="text-xs text-slate-700 leading-relaxed font-sans">
+                Взял семью под опеку задолго до шпица. Систематически игнорирует правила гравитации, спит на холодильнике, считает Апеля шумным и неэффективным пылесосом для крошек сыра.
+              </p>
+              
+              <div class="pt-2">
+                <div class="flex justify-between items-center text-3xs font-mono text-slate-500 uppercase tracking-widest font-bold">
+                  <span>Уровень раздражения на шпица:</span>
+                  <span id="koks-rage-value" class="font-bold text-slate-700 text-xs">65%</span>
+                </div>
+                <input
+                  id="koks-rage-slider"
+                  type="range"
+                  min="10"
+                  max="100"
+                  value="65"
+                  class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-600 mt-1"
+                />
+                <p id="koks-status-msg" class="text-[11px] text-slate-600/95 italic bg-white px-2.5 py-2 rounded-lg border border-slate-100 mt-2.5 font-mono leading-relaxed">
+                  👁️ Кокс сузил глаза до ниточек. Тщательно анализирует верстку этого сайта.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KROSHIK THE PARROT -->
+        <div class="bg-emerald-50/50 border border-emerald-100 rounded-2xl p-5 relative overflow-hidden shadow-xs">
+          <div class="absolute top-0 right-0 p-3 bg-emerald-100/60 text-emerald-800 rounded-bl-xl font-bold font-mono text-3xs uppercase tracking-widest">
+            Воздушный маршал
+          </div>
+          
+          <div class="flex gap-4 items-start">
+            <div class="text-4xl bg-white p-2.5 rounded-xl border border-emerald-100 shadow-sm select-none">
+              Parrot 🦜
+            </div>
+            <div class="flex-1 space-y-1.5">
+              <h4 class="text-base md:text-lg font-bold font-display text-emerald-950 flex items-center gap-2">
+                Попугай Крошик
+                <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-semibold">Сливальщик сушек</span>
+              </h4>
+              <p class="text-xs text-emerald-900/80 leading-relaxed font-sans">
+                Обладает голосом громкостью в два мегафона. Знает силу слова и пользуется этим в корыстных целях. Совершает разведывательные полеты по кухне, сбрасывая Апелю хлебные крошки в порядке благотворительности.
+              </p>
+
+              <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <button
+                  id="btn-poke-parrot"
+                  class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap shadow-sm"
+                >
+                  <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+                  Ткнуть Крошика
+                </button>
+
+                <div class="text-xs bg-white text-emerald-950 font-mono italic p-2 rounded-xl border border-emerald-100 flex-1 flex items-center gap-1.5 leading-snug shadow-sm">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i>
+                  <span id="parrot-speech">"Крошик хороший! Апель глупый шпиц! Дай сушку!"</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- 6. Daily agenda (Расписание) -->
+    <section class="py-12 md:py-20" id="schedule-section">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 animate-fade-in">
+        <div class="bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-amber-100">
+          <div class="flex flex-col md:flex-row gap-8">
+            
+            <!-- Left column: Timeline selector -->
+            <div class="w-full md:w-1/3 flex flex-col space-y-3 justify-center">
+              <div class="mb-4">
+                <span class="text-3xs font-mono font-bold text-amber-700 bg-amber-100 uppercase tracking-widest px-2.5 py-1 rounded-full">
+                  Распорядок Дня
+                </span>
+                <h3 class="text-xl md:text-2xl font-black font-serif text-amber-955 mt-1 whitespace-nowrap">
+                  Дневник Его Высочества
+                </h3>
+                <p class="text-xs text-amber-900/60 mt-1 font-display">
+                  Каждая секунда распланирована до предела. Тайм-менеджмент, который Илон Маск побоялся повторить:
+                </p>
+              </div>
+
+              <div class="space-y-2">
+                <button
+                  data-time="08:00"
+                  class="schedule-btn w-full flex items-center justify-between p-3 rounded-xl border text-left cursor-pointer transition-all bg-amber-100/90 border-amber-300 shadow-sm translate-x-2"
+                >
+                  <div class="flex items-center gap-3">
+                    <div class="text-sm font-black font-mono text-amber-955 bg-white px-2 py-0.5 rounded shadow-sm border border-amber-105">
+                      08:00
+                    </div>
+                    <span class="text-xs font-bold text-amber-950 font-display">
+                      Утренний Экзорцизм
+                    </span>
+                  </div>
+                  <span class="text-xl">👁️</span>
+                </button>
+
+                <button
+                  data-time="10:00"
+                  class="schedule-btn w-full flex items-center justify-between p-3 rounded-xl border text-left cursor-pointer transition-all bg-amber-50/20 border-amber-100/70 hover:bg-amber-100/30"
+                >
+                  <div class="flex items-center gap-3">
+                    <div class="text-sm font-black font-mono text-amber-955 bg-white px-2 py-0.5 rounded shadow-sm border border-amber-105">
+                      10:00
+                    </div>
+                    <span class="text-xs font-bold text-amber-955 font-display">
+                      Влажная Проверка
+                    </span>
+                  </div>
+                  <span class="text-xl">🐾</span>
+                </button>
+
+                <button
+                  data-time="13:00"
+                  class="schedule-btn w-full flex items-center justify-between p-3 rounded-xl border text-left cursor-pointer transition-all bg-amber-50/20 border-amber-100/70 hover:bg-amber-100/30"
+                >
+                  <div class="flex items-center gap-3">
+                    <div class="text-sm font-black font-mono text-amber-955 bg-white px-2 py-0.5 rounded shadow-sm border border-amber-105">
+                      13:00
+                    </div>
+                    <span class="text-xs font-bold text-amber-955 font-display">
+                      Режим «Хлебушек»
+                    </span>
+                  </div>
+                  <span class="text-xl">🍄</span>
+                </button>
+
+                <button
+                  data-time="16:00"
+                  class="schedule-btn w-full flex items-center justify-between p-3 rounded-xl border text-left cursor-pointer transition-all bg-amber-50/20 border-amber-100/70 hover:bg-amber-100/30"
+                >
+                  <div class="flex items-center gap-3">
+                    <div class="text-sm font-black font-mono text-amber-955 bg-white px-2 py-0.5 rounded shadow-sm border border-amber-105">
+                      16:00
+                    </div>
+                    <span class="text-xs font-bold text-amber-955 font-display">
+                      Слуховая Инспекция
+                    </span>
+                  </div>
+                  <span class="text-xl">👂</span>
+                </button>
+
+                <button
+                  data-time="20:00"
+                  class="schedule-btn w-full flex items-center justify-between p-3 rounded-xl border text-left cursor-pointer transition-all bg-amber-50/20 border-amber-100/70 hover:bg-amber-100/30"
+                >
+                  <div class="flex items-center gap-3">
+                    <div class="text-sm font-black font-mono text-amber-955 bg-white px-2 py-0.5 rounded shadow-sm border border-amber-105">
+                      20:00
+                    </div>
+                    <span class="text-xs font-bold text-amber-955 font-display">
+                      Ночной Тыгыдык и Сыр
+                    </span>
+                  </div>
+                  <span class="text-xl">⚡</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Right column: Dynamic details sheet -->
+            <div id="schedule-detail-panel" class="w-full md:w-2/3 flex items-center">
+              <!-- Replaced dynamically by Javascript -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Treat component (Симулятор вкусняшек) -->
+    <section class="py-12 md:py-20 bg-amber-50/20 border-b border-amber-100" id="treat-simulator">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-amber-100 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-full -mr-16 -mt-16 -z-10" />
+          
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            
+            <!-- Face bowl state -->
+            <div class="w-full md:w-2/5 flex flex-col items-center justify-center relative bg-orange-50/50 rounded-2xl p-6 border border-orange-100">
+              <div class="text-center mb-4">
+                <span class="text-xs font-mono py-1 px-3 bg-amber-100 text-amber-800 rounded-full uppercase tracking-wider font-semibold">
+                  Интерактивный симулятор
+                </span>
+              </div>
+
+              <!-- Spitz static icon head -->
+              <div class="relative w-44 h-44 mb-4 flex items-center justify-center">
+                <div class="absolute inset-0 rounded-full bg-amber-200/30 animate-pulse"></div>
+                
+                <!-- Toy dog head chewing emoji -->
+                <div 
+                  id="simulator-dog-head" 
+                  class="text-8-5xl text-8xl select-none relative z-10 cursor-pointer hover:scale-105 transition-transform"
+                  title="Нажмите на Апеля!"
+                >
+                  🐕
+                </div>
+
+                <!-- Particle crumbs emitter overlay portal -->
+                <div id="simulator-particles" class="absolute inset-0 pointer-events-none z-20"></div>
+              </div>
+
+              <!-- Dog bowl -->
+              <div class="relative w-36 h-12 bg-rose-500 rounded-b-2xl rounded-t-lg shadow-md flex items-center justify-center border-t-2 border-rose-400">
+                <div class="absolute inset-x-2 -top-1 h-3 bg-amber-900/10 rounded-full pb-1 flex items-center justify-center">
+                  <span class="text-[9px] text-rose-100 font-mono uppercase tracking-widest font-black">APEL_BOWL</span>
+                </div>
+                <div class="absolute top-1 transform translate-y-1 flex gap-1 justify-center">
+                  <span class="w-2.5 h-2.5 rounded-full bg-amber-700/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-800/90"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-yellow-400/80"></span>
+                </div>
+              </div>
+
+              <!-- Live satiety meter -->
+              <div class="mt-6 w-full space-y-2.5 text-sm">
+                <div class="flex justify-between items-center text-xs text-amber-900/60 font-mono">
+                  <span>СЫТОСТЬ ИГРУШКИ:</span>
+                  <span id="satisfaction-value" class="font-bold text-amber-800">85%</span>
+                </div>
+                <!-- Satiety bar -->
+                <div class="w-full bg-amber-100 rounded-full h-3 overflow-hidden border border-amber-200/80">
+                  <div 
+                    id="satisfaction-progress" 
+                    class="h-full rounded-full bg-amber-500 transition-all duration-300" 
+                    style="width: 85%"
+                  ></div>
+                </div>
+                
+                <div class="flex justify-between items-center text-xs text-amber-900/60 mt-2 font-mono">
+                  <span>СЪЕДЕНО ВСЕГО:</span>
+                  <span id="total-fed-count" class="font-semibold px-2 py-0.5 bg-amber-100 text-amber-900 rounded">482 шт.</span>
+                </div>
+                <div id="last-fed-text" class="text-[10px] text-center text-amber-800/50 italic font-mono mt-1">
+                  Последний хруст: Сырный Слайс «Гауда»
+                </div>
+              </div>
+            </div>
+
+            <!-- Foods selecting menu options -->
+            <div class="w-full md:w-3/5 space-y-4">
+              <h3 class="text-xl font-bold font-display text-amber-955 flex items-center gap-2">
+                <i data-lucide="cookie" class="text-amber-500 w-6 h-6 animate-spin-slow"></i>
+                Покорми Апеля виртуально!
+              </h3>
+              <p class="text-sm text-amber-900/80 leading-relaxed max-w-lg">
+                Каждое ваше нажатие не просто изменяет цифры на экране, а гипотетически телепортирует флюиды сыра и любви прямо на пушистую попу этого удивительного существа. Выбирайте вкусняшку мудро:
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                
+                <!-- Food 1 -->
+                <button
+                  data-food="gauda"
+                  class="feed-toy-btn group relative flex items-start gap-3 p-3 bg-amber-50 hover:bg-amber-100/80 active:scale-95 transition-all text-left rounded-xl border border-amber-100/90 cursor-pointer overflow-hidden shadow-xs hover:shadow-sm"
+                >
+                  <div class="text-3xl p-1 bg-white rounded-lg shadow-sm group-hover:scale-105 transition-transform">🧀</div>
+                  <div>
+                    <div class="text-xs font-bold text-amber-955 flex items-center gap-1.5 leading-tight">
+                      Сырный Слайс «Гауда»
+                      <span class="text-[9px] text-green-600 bg-green-50 px-1 font-mono rounded font-normal">+5%</span>
+                    </div>
+                    <p class="text-[10px] text-amber-900/70 mt-1 font-sans leading-relaxed">
+                      Королевская слабость Апеля. Вызывает лапопожатие на месте.
+                    </p>
+                  </div>
+                </button>
+
+                <!-- Food 2 -->
+                <button
+                  data-food="lung"
+                  class="feed-toy-btn group relative flex items-start gap-3 p-3 bg-amber-50 hover:bg-amber-100/80 active:scale-95 transition-all text-left rounded-xl border border-amber-100/90 cursor-pointer overflow-hidden shadow-xs hover:shadow-sm"
+                >
+                  <div class="text-3xl p-1 bg-white rounded-lg shadow-sm group-hover:scale-105 transition-transform">🥩</div>
+                  <div>
+                    <div class="text-xs font-bold text-amber-955 flex items-center gap-1.5 leading-tight">
+                      Сушеное Легкое говяжье
+                      <span class="text-[9px] text-green-600 bg-green-50 px-1 font-mono rounded font-normal">+8%</span>
+                    </div>
+                    <p class="text-[10px] text-amber-900/70 mt-1 font-sans leading-relaxed">
+                      Пахнет сомнительно для кухонных людей, но божественно для псов.
+                    </p>
+                  </div>
+                </button>
+
+                <!-- Food 3 -->
+                <button
+                  data-food="sweetbun"
+                  class="feed-toy-btn group relative flex items-start gap-3 p-3 bg-amber-50 hover:bg-amber-100/80 active:scale-95 transition-all text-left rounded-xl border border-amber-100/90 cursor-pointer overflow-hidden shadow-xs hover:shadow-sm"
+                >
+                  <div class="text-3xl p-1 bg-white rounded-lg shadow-sm group-hover:scale-105 transition-transform">🥯</div>
+                  <div>
+                    <div class="text-xs font-bold text-amber-955 flex items-center gap-1.5 leading-tight">
+                      Плюшка «Булочка»
+                      <span class="text-[9px] text-green-600 bg-green-50 px-1 font-mono rounded font-normal">+12%</span>
+                    </div>
+                    <p class="text-[10px] text-amber-900/70 mt-1 font-sans leading-relaxed">
+                      Почти каннибализм, ведь Апель сам сладкая булка. На праздники!
+                    </p>
+                  </div>
+                </button>
+
+                <!-- Food 4 -->
+                <button
+                  data-food="kroshik"
+                  class="feed-toy-btn group relative flex items-start gap-3 p-3 bg-amber-50 hover:bg-amber-100/80 active:scale-95 transition-all text-left rounded-xl border border-amber-100/90 cursor-pointer overflow-hidden shadow-xs hover:shadow-sm"
+                >
+                  <div class="text-3xl p-1 bg-white rounded-lg shadow-sm group-hover:scale-105 transition-transform">🥨</div>
+                  <div>
+                    <div class="text-xs font-bold text-amber-955 flex items-center gap-1.5 leading-tight">
+                      Сушка Крошика
+                      <span class="text-[9px] text-rose-600 bg-rose-50 px-1 font-mono rounded font-normal">-2%</span>
+                    </div>
+                    <p class="text-[10px] text-amber-900/70 mt-1 font-sans leading-relaxed">
+                      Свиснутая сушка попугая Крошика. Птица поднимет дикий хай!
+                    </p>
+                  </div>
+                </button>
+
+              </div>
+
+              <!-- Reset statistics and telemetry -->
+              <div class="flex justify-between items-center bg-amber-50/50 p-3 rounded-xl border border-dashed border-amber-200 mt-2">
+                <span class="text-[11px] text-amber-900/70 italic flex items-center gap-1.5 font-mono">
+                  <i data-lucide="flame" class="w-4 h-4 text-orange-400"></i>
+                  Сырная медитация активирована
+                </span>
+                <button
+                  id="btn-reset-treats"
+                  class="text-[10px] text-amber-800/70 hover:text-rose-600 flex items-center gap-1 font-mono bg-white hover:bg-rose-50 px-2.5 py-1.5 rounded border border-amber-200 cursor-pointer transition-colors shadow-sm font-semibold uppercase tracking-wide"
+                  title="Сбросить количество вкусняшек к заводским настройкам"
+                >
+                  <i data-lucide="refresh-cw" class="w-3 h-3"></i>
+                  Сбросить
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Certificate Generator component (Диплом почета) -->
+    <section class="py-12 md:py-20" id="certificate-generator">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-amber-100">
+          <div class="max-w-3xl mx-auto">
+            
+            <div class="text-center mb-8">
+              <div class="inline-flex p-3 bg-amber-50 text-amber-600 rounded-2xl mb-3 border border-amber-100">
+                <i data-lucide="award" class="w-8 h-8 text-amber-500"></i>
+              </div>
+              <h3 class="text-2xl md:text-3xl font-black font-serif text-amber-955">
+                Канцелярия Королевского Двора
+              </h3>
+              <p class="text-sm text-amber-900/70 mt-1.5 font-display max-w-lg mx-auto">
+                Здесь вершатся судьбы. Выпишите диплом преданности шпицу Апелю первой степени с печатью из плавленного сырка!
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+              
+              <!-- Form -->
+              <div class="md:col-span-5 bg-amber-50/40 p-5 rounded-2xl border border-amber-100/80 shadow-xs">
+                <form id="certificate-form" class="space-y-4">
+                  <div>
+                    <label class="block text-[10px] font-mono font-bold text-amber-900 uppercase tracking-wider mb-1.5">
+                      ФИО Кандидата / Имя питомца
+                    </label>
+                    <input
+                      id="cert-candidate-name"
+                      type="text"
+                      required
+                      placeholder="Например: Папа Миша, Мама Джекки"
+                      class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-amber-200 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-amber-950 font-medium font-sans"
+                    />
+                  </div>
+
+                  <div>
+                    <label class="block text-[10px] font-mono font-bold text-amber-900 uppercase tracking-wider mb-1.5">
+                      Придворная должность
+                    </label>
+                    <select
+                      id="cert-role-select"
+                      class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-amber-200 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-amber-950 font-medium font-sans cursor-pointer"
+                    >
+                      <option value="Главный Поставщик Сырочка">🧀 Главный Поставщик Сырочка</option>
+                      <option value="Профессиональный Чесатель Седалища">🐾 Профессиональный Чесатель Седалища</option>
+                      <option value="Хранитель Дневного Сна Его Пушистости">🛏️ Хранитель Дневного Сна Его Пушистости</option>
+                      <option value="Официальный Слушатель Звонкого Тявка">📢 Официальный Слушатель Звонкого Тявка</option>
+                      <option value="Оператор Шуршащих Кульков">🛍️ Оператор Шуршащих Кульков</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="block text-[10px] font-mono font-bold text-amber-900 uppercase tracking-wider mb-1.5">
+                      Фирменный грех / Навык
+                    </label>
+                    <select
+                      id="cert-quirk-select"
+                      class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-amber-200 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-amber-950 font-medium font-sans cursor-pointer"
+                    >
+                      <option value="Гипнотизирует колбасные изделия взглядом">🌭 Гипнотизирует колбасные изделия взглядом</option>
+                      <option value="Изъятие спортивных носков из оборота">🧦 Изъятие спортивных носков из оборота</option>
+                      <option value="Скорбное выражение лица при виде сухого корма">😒 Скорбное выражение лица при виде сухого корма</option>
+                      <option value="Сон в позе «завтрак готов, переворачивайте»">💤 Сон в позе «завтрак готов, переворачивайте»</option>
+                      <option value="Секретные совместные марш-броски с котом Коксом">🐈 Секретные совместные марш-броски с котом Коксом</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between items-center mb-1">
+                      <label class="block text-[10px] font-mono font-bold text-amber-900 uppercase tracking-wider">
+                        Индекс преданности шпицу
+                      </label>
+                      <span id="cert-loyalty-value" class="text-xs font-mono font-bold text-amber-700 bg-amber-100 rounded px-1.5 py-0.5">
+                        100%
+                      </span>
+                    </div>
+                    <input
+                      id="cert-loyalty-slider"
+                      type="range"
+                      min="50"
+                      max="150"
+                      value="100"
+                      class="w-full h-2 bg-amber-200 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                    />
+                    <div class="flex justify-between text-[9px] text-amber-800/50 italic font-mono mt-1 font-bold">
+                      <span>Удовлетворительно</span>
+                      <span>Гиперфанат сырка</span>
+                    </div>
+                  </div>
+
+                  <div class="pt-2">
+                    <button
+                      type="submit"
+                      class="w-full py-3 px-4 bg-amber-500 hover:bg-amber-600 active:scale-95 text-white rounded-xl font-bold font-display shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer text-xs"
+                    >
+                      <span id="btn-generate-text" class="flex items-center gap-2">
+                        <i data-lucide="file-text" class="w-4 h-4"></i>
+                        Пожаловать грамоту!
+                      </span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Certificate Preview / Result -->
+              <div class="md:col-span-7 flex flex-col items-center justify-center min-h-[300px] w-full">
+                
+                <!-- Blank State Placeholder -->
+                <div id="cert-placeholder" class="flex flex-col items-center justify-center text-center p-8 border-2 border-dashed border-amber-200 rounded-2xl bg-amber-50/25 h-76 w-full animate-fade-in">
+                  <i data-lucide="file-text" class="w-12 h-12 text-amber-300 stroke-1 animate-bounce mb-3"></i>
+                  <p class="text-sm font-semibold text-amber-900/60 font-display">
+                    Диплом пуст и ждёт владельца
+                  </p>
+                  <p class="text-xs text-amber-800/40 mt-1 max-w-xs font-mono">
+                    Заполните форму слева, чтобы Его Пушистость наложил личную лапу одобрения.
+                  </p>
+                </div>
+
+                <!-- Generated Real Vintage Certificate -->
+                <div id="cert-result-holder" class="hidden w-full animate-fade-in text-[#2b231c]">
+                  <div class="relative bg-amber-50/70 border-[8px] border-double border-amber-800 p-6 md:p-8 rounded-xl shadow-lg pattern-bg overflow-hidden">
+                    <div class="absolute inset-2 border border-dashed border-amber-700/60 pointer-events-none rounded"></div>
+                    
+                    <!-- Dog paw watermark background -->
+                    <div class="absolute inset-0 flex items-center justify-center opacity-[0.03] select-none pointer-events-none">
+                      <span class="text-9.5xl text-9xl">🐾</span>
+                    </div>
+
+                    <!-- Header document -->
+                    <div class="text-center relative">
+                      <div class="text-amber-800 font-serif italic text-xs tracking-widest font-bold">
+                        ЦАРСКИЙ УКАЗ ЕГО ПУШЕСТВА
+                      </div>
+                      <h4 class="text-xl md:text-2xl font-black font-serif text-amber-955 mt-1 tracking-tight">
+                        Жалованная Грамота
+                      </h4>
+                      <p id="cert-doc-serial" class="text-[9px] text-amber-800/60 font-mono tracking-wider mt-0.5 font-bold">
+                        № APEL-384192 // ОТ 27 мая 2026 г.
+                      </p>
+                    </div>
+
+                    <!-- Core description -->
+                    <div class="mt-6 text-center space-y-3 font-sans relative">
+                      <p class="text-[11px] text-amber-900/70 italic">
+                        Сим документом Высочайший Двор подтверждает, что:
+                      </p>
+                      <p id="cert-showcase-name" class="text-lg md:text-xl font-bold text-rose-700 font-display underline decoration-amber-400 decoration-2 underline-offset-4">
+                        Имя Кандидата
+                      </p>
+                      <p class="text-xs md:text-sm text-amber-950 leading-relaxed font-serif">
+                        Признаётся законным носителем титула <span id="cert-showcase-role" class="font-bold text-amber-900 bg-amber-100/80 px-1.5 py-0.5 rounded">Поставщик Сырочка</span>.
+                      </p>
+                      <p class="text-[11px] text-amber-900/80 max-w-xs mx-auto italic">
+                        За неоценимый вклад в развитие пухлости щёк, снисходительное отношение к греху типа <strong id="cert-showcase-quirk" class="text-amber-950 font-bold">«Спит на спине»</strong> и преданность со шкалой доверия в <strong id="cert-showcase-loyalty" class="text-rose-600 font-black">100%</strong>.
+                      </p>
+                    </div>
+
+                    <!-- Seals and Signatures -->
+                    <div class="mt-8 flex justify-between items-end border-t border-dashed border-amber-700/40 pt-4 text-[10px] font-mono relative">
+                      <div class="text-left font-mono">
+                        <p class="text-amber-800/85">Одобрено Котом Коксом:</p>
+                        <p class="font-serif italic font-bold text-xs text-amber-950 h-5 mt-1 select-none">«Царап-Кусь» 😼</p>
+                      </div>
+                      
+                      <!-- Seal stamp wax -->
+                      <div class="absolute left-1/2 bottom-1 transform -translate-x-1/2 flex flex-col items-center">
+                        <div class="w-11 h-11 bg-rose-700 rounded-full flex items-center justify-center text-white text-base shadow-md border-2 border-rose-800 ring-4 ring-rose-200 select-none cursor-pointer" title="Сырная королевская печать">
+                          🐾
+                        </div>
+                        <span class="text-[8px] text-rose-800 font-extrabold mt-1 font-mono tracking-widest bg-rose-50 px-1 rounded uppercase">АПЕЛЬ I</span>
+                      </div>
+
+                      <div class="text-right font-mono">
+                        <p class="text-amber-800/85">Автограф Апеля:</p>
+                        <p class="font-serif italic font-bold text-xs text-amber-900 h-5 mt-1 select-none">🐾 (Рыжий Шпиц)</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- PDF options tool line -->
+                  <div class="flex gap-2 justify-center mt-4">
+                    <button
+                      onclick="window.print()"
+                      class="py-1.5 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 cursor-pointer border border-slate-200 hover:scale-103 transition-transform"
+                    >
+                      <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+                      Печать (PDF)
+                    </button>
+                    <button
+                      id="btn-cert-reset"
+                      class="py-1.5 px-3 bg-amber-100 hover:bg-amber-200 text-amber-900 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 cursor-pointer border border-amber-200 hover:scale-103 transition-transform"
+                    >
+                      <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                      Выписать другую
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. FAQ / Вопросы о Великом Шпице -->
+    <section class="py-12 md:py-20 bg-amber-50/20 border-t border-amber-100" id="faq-section">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center mb-10">
+          <span class="text-xs font-mono py-1 px-3 bg-amber-100 text-amber-800 rounded-full font-bold uppercase tracking-widest">
+            FAQ
+          </span>
+          <h2 class="text-2xl md:text-3xl font-black font-serif text-amber-955 mt-1">
+            Часто Задаваемые Легенды
+          </h2>
+          <p class="text-xs text-amber-900/60 mt-1.5 font-display">
+            Многие хотят разгадать феномен сладкой приютской булки Апеля. Срываем покровы с пушистой тайны:
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          
+          <!-- Accordion item 1 -->
+          <div class="bg-white border border-amber-100 rounded-2xl overflow-hidden shadow-sm">
+            <button class="faq-toggle-btn w-full flex justify-between items-center p-5 text-left font-display font-bold text-amber-955 hover:bg-amber-50/50 cursor-pointer">
+              <span class="text-xs md:text-sm leading-snug">Вы действительно взяли его из приюта? По виду он как выставочная звезда!</span>
+              <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-amber-600 transition-transform shrink-0 ml-4"></i>
+            </button>
+            <div class="faq-answer-block hidden p-5 pt-0 border-t border-amber-50 bg-amber-50/5 text-xs md:text-sm text-amber-900/80 leading-relaxed font-sans">
+              Золотая правда! Ровно год назад мы нашли Апеля в приюте для животных. Он сидел в вольере грустный и пыльный, но его королевская гордость была заметна сразу. Наш пример доказывает: настоящие сокровища и верные друзья не покупаются за миллионы, а ждут вас в приютах совершенно бесплатно (в обмен на ваше сердце и сыр!).
+            </div>
+          </div>
+
+          <!-- Accordion item 2 -->
+          <div class="bg-white border border-amber-100 rounded-2xl overflow-hidden shadow-sm">
+            <button class="faq-toggle-btn w-full flex justify-between items-center p-5 text-left font-display font-bold text-amber-955 hover:bg-amber-50/50 cursor-pointer">
+              <span class="text-xs md:text-sm leading-snug">Почему собаку назвали «Апель»?</span>
+              <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-amber-600 transition-transform shrink-0 ml-4"></i>
+            </button>
+            <div class="faq-answer-block hidden p-5 pt-0 border-t border-amber-50 bg-amber-50/5 text-xs md:text-sm text-amber-900/80 leading-relaxed font-sans">
+              Официальная версия: он рыжий и круглый как сицилийский апельсинчик. Дипломатическая версия: его величество благороден и искрист как Апероль Шприц. Версия Апеля: потому что слово созвучно со словом «Апарт» (его личные апартаменты) и «Аппетит» (его вечное состояние).
+            </div>
+          </div>
+
+          <!-- Accordion item 3 -->
+          <div class="bg-white border border-amber-100 rounded-2xl overflow-hidden shadow-sm">
+            <button class="faq-toggle-btn w-full flex justify-between items-center p-5 text-left font-display font-bold text-amber-955 hover:bg-amber-50/50 cursor-pointer">
+              <span class="text-xs md:text-sm leading-snug">Правда ли, что шпицы — сложные в уходе собаки?</span>
+              <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-amber-600 transition-transform shrink-0 ml-4"></i>
+            </button>
+            <div class="faq-answer-block hidden p-5 pt-0 border-t border-amber-50 bg-amber-50/5 text-xs md:text-sm text-amber-900/80 leading-relaxed font-sans">
+              Сложность ровно одна: устоять перед шуршанием пакета с едой в 100 метрах. В остальном Апель неприхотлив: 23 часа сна, 1 час активного выпрашивания сыра, расчесывание штанишек под тихий ворчливый сонный храп.
+            </div>
+          </div>
+
+          <!-- Accordion item 4 -->
+          <div class="bg-white border border-amber-100 rounded-2xl overflow-hidden shadow-sm">
+            <button class="faq-toggle-btn w-full flex justify-between items-center p-5 text-left font-display font-bold text-amber-955 hover:bg-amber-50/50 cursor-pointer">
+              <span class="text-xs md:text-sm leading-snug">Как кот Кокс относится к возвышению шпица?</span>
+              <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-amber-600 transition-transform shrink-0 ml-4"></i>
+            </button>
+            <div class="faq-answer-block hidden p-5 pt-0 border-t border-amber-50 bg-amber-50/5 text-xs md:text-sm text-amber-900/80 leading-relaxed font-sans">
+              Кот Кокс до сих пор уверен, что Апель — это неисправная интерактивная игрушка, которая случайно научилась лаять и воровать сушки у попугая. Они находятся в состоянии вооруженного нейтралитета: кот контролирует высоту шкафов, пес — территорию дивана.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Shelter animal charity promotion banner card -->
+        <div class="mt-10 text-center bg-green-50 border border-green-200 p-5 rounded-2xl">
+          <span class="text-2xl">🏡💖</span>
+          <h4 class="text-xs font-bold text-green-950 uppercase tracking-wider font-mono mt-2">Мировое Послание Шпица Апеля</h4>
+          <p class="text-xs text-green-900/80 mt-1.5 leading-relaxed max-w-lg mx-auto font-sans">
+            «Если вы ищете любовь и готовы делиться сыром — загляните в ближайший приют для животных. Там вас ждут тысячи потрясающих собак и кошек, готовых превратить ваш дом в настоящую королевскую обитель!»
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 10. Footer (Подвал) -->
+    <footer class="bg-[#1c130c] text-amber-100 py-10 md:py-14 border-t-4 border-amber-500">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-amber-900/60 pb-8">
+          <div class="flex items-center gap-2">
+            <span class="text-3xl animate-pulse">🍊</span>
+            <div>
+              <span class="font-serif font-black text-lg md:text-xl tracking-tight text-white block leading-none">АПЕЛЬ I</span>
+              <span class="text-[9px] font-mono text-amber-300 uppercase tracking-widest block font-bold mt-1">ОФИЦИАЛЬНАЯ ПУШИСТАЯ ЗВЕЗДА</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-4 justify-center text-[10px] font-mono font-bold tracking-wider uppercase text-amber-200">
+            <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="hover:text-amber-300 transition-colors cursor-pointer">ВВЕРХ</button>
+            <span>•</span>
+            <button data-scroll="origin-story" class="hover:text-amber-300 transition-colors cursor-pointer">БИОГРАФИЯ</button>
+            <span>•</span>
+            <button data-scroll="photo-chronicles" class="hover:text-amber-300 transition-colors cursor-pointer">ФОТОХРОНИКА</button>
+            <span>•</span>
+            <button data-scroll="treat-simulator" class="hover:text-amber-300 transition-colors cursor-pointer">СИМУЛЯТОР</button>
+            <span>•</span>
+            <button data-scroll="certificate-generator" class="hover:text-amber-300 transition-colors cursor-pointer">ГРАМОТА</button>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4 pt-6 text-[8px] font-mono uppercase tracking-widest text-amber-400">
+          <p>© 2026 APEL THE SPITZ INC. ВСЕ ЛАПКИ ЗАЩИЩЕНЫ. СДЕЛАНО С СЫРОМ И ЛЮБОВЬЮ.</p>
+          <p class="flex items-center gap-1 bg-amber-950/40 px-3 py-1 rounded">
+            <span>СЕМЕЙНОЕ КОРГОВЕЩАНИЕ</span>
+            <i data-lucide="heart" class="w-3.5 h-3.5 text-rose-500 fill-current"></i>
+            <span>ШПИЦ-МЕДИА КОРП ОФ ЛАПАС</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- ================= MODERN FLOATING PHOTO MODAL PORTAL ================= -->
+    <div id="photo-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+      <!-- Backdrop translucent blur -->
+      <div id="modal-backdrop-close" class="absolute inset-0 bg-amber-950/80 backdrop-blur-md" onclick="closeModal()"></div>
+      
+      <!-- Content Container Card -->
+      <div class="bg-[#fcf9f5] rounded-3xl overflow-hidden max-w-2xl w-full max-h-[90vh] overflow-y-auto border-2 border-amber-200/50 relative z-10 flex flex-col shadow-2xl animate-fade-in text-[#2b231c]">
+        
+        <!-- Header banner block -->
+        <div id="modal-header" class="p-6 bg-gradient-to-r from-blue-400 to-sky-600 text-white relative">
+          <button
+            id="modal-close-btn"
+            class="absolute top-4 right-4 bg-black/20 hover:bg-black/40 text-white rounded-full p-2 text-xs font-bold leading-none cursor-pointer transition-colors"
+          >
+            ✕
+          </button>
+          <div class="space-y-1">
+            <span class="text-[9px] font-mono uppercase bg-white/20 border border-white/25 px-2.5 py-0.5 rounded-full font-bold tracking-widest">
+              Рассекреченный Снимок Архива
+            </span>
+            <h4 id="modal-title" class="text-lg md:text-2xl font-serif font-black flex items-center gap-2">
+              🚗💙 Первая поездка домой!
+            </h4>
+            <p id="modal-meta" class="text-xs text-white/90">
+              📍 Трасса Приют — Диван • 📅 Май 2025 г.
+            </p>
+          </div>
+        </div>
+
+        <!-- Body Detail Story -->
+        <div class="p-6 md:p-8 space-y-6 flex-1 text-sm">
+          
+          <!-- Image descriptive box info -->
+          <div class="space-y-2">
+            <h5 class="font-mono text-[9px] uppercase tracking-wider text-amber-900/60 font-bold">Описание кадра:</h5>
+            <p id="modal-description" class="font-sans leading-relaxed text-amber-955 bg-amber-100/30 p-3.5 border-l-4 border-amber-400 rounded-r-xl">
+              Запись
+            </p>
+          </div>
+
+          <!-- Dog inner thoughts balloon -->
+          <div class="space-y-2 bg-amber-50 p-4 rounded-2xl border border-amber-100/70 relative overflow-hidden">
+            <div class="absolute -right-6 -bottom-6 text-6xl opacity-10 rotate-12">🍊</div>
+            <h5 class="font-mono text-[9px] uppercase tracking-wider text-amber-800 font-bold flex items-center gap-1 select-none">
+              🍊 ВНУТРЕННИЙ МОНОЛОГ АПЕЛЯ:
+            </h5>
+            <p id="modal-intel" class="italic font-display text-amber-955 text-xs md:text-sm leading-relaxed">
+              Мысли
+            </p>
+          </div>
+
+          <!-- Side-by-side opposing feedback -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <!-- Koks Cat view point -->
+            <div class="bg-slate-50 border border-slate-200/50 p-4 rounded-xl shadow-3xs">
+              <h6 class="font-mono text-[9px] uppercase tracking-wider text-slate-500 font-bold flex items-center gap-1.5 mb-1.5">
+                😼 МНЕНИЕ КОТА КОКСА:
+              </h6>
+              <p id="modal-koks-comment" class="text-xs text-slate-800 italic leading-relaxed">
+                Ворчание
+              </p>
+            </div>
+
+            <!-- Kroshik Parrot screaming -->
+            <div class="bg-emerald-50/40 border border-emerald-110 p-4 rounded-xl shadow-3xs">
+              <h6 class="font-mono text-[9px] uppercase tracking-wider text-emerald-600 font-bold flex items-center gap-1.5 mb-1.5">
+                🦜 ВОПЛИ ПОПУГАЯ КРОШИКА:
+              </h6>
+              <p id="modal-kroshik-comment" class="text-xs text-emerald-900 italic font-mono leading-relaxed">
+                Крик
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Custom interaction reactions -->
+          <div class="border-t border-amber-100 pt-5 space-y-4">
+            <h5 class="font-mono text-[9px] uppercase tracking-wider text-[#2b231c]/60 font-bold flex items-center gap-1.5">
+              💬 РЕАКЦИИ ЧЛЕНОВ СЕМЬИ И ПОДПИСЧИКОВ:
+            </h5>
+
+            <!-- Comment list container -->
+            <div id="modal-comments-list" class="space-y-3 max-h-[140px] overflow-y-auto pr-2">
+              <!-- Replaced dynamically by Javascript -->
+            </div>
+
+            <!-- Reaction submission input fields -->
+            <div class="bg-amber-100/30 p-3.5 border border-amber-200/50 rounded-2xl space-y-2.5 shadow-3xs">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="space-y-1">
+                  <label class="text-[9px] font-mono text-amber-900/75 uppercase font-bold">Ваша роль:</label>
+                  <input
+                    id="reviewer-name-input"
+                    type="text"
+                    value="Анонимный Ценитель"
+                    class="w-full bg-white border border-amber-200 text-xs rounded-lg px-2.5 py-1.5 font-semibold focus:outline-none focus:ring-1 focus:ring-amber-400"
+                  />
+                </div>
+                <div class="space-y-1">
+                  <label class="text-[9px] font-mono text-amber-900/75 uppercase font-bold">Написать отзыв:</label>
+                  <input
+                    id="comment-text-input"
+                    type="text"
+                    placeholder="Например: Апель, ты настоящее солнышко!☀️"
+                    class="w-full bg-white border border-amber-200 text-xs rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-amber-400"
+                  />
+                </div>
+              </div>
+
+              <button
+                id="modal-submit-comment"
+                class="w-full bg-amber-500 hover:bg-amber-600 active:scale-95 text-white font-mono text-[10px] font-bold py-2 rounded-lg transition-all uppercase tracking-wider cursor-pointer text-center"
+              >
+                Оставить в Хрониках 🐾
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Footer modal closure actions -->
+        <div class="p-4 bg-amber-50 border-t border-amber-100 flex justify-between items-center text-[10px] font-mono">
+          <span>© APEL CHRONICLES INC.</span>
+          <button
+            id="modal-footer-close"
+            class="bg-white hover:bg-amber-100 border border-amber-200 text-amber-950 font-bold px-4 py-1.5 rounded-lg transition-colors cursor-pointer uppercase tracking-wider"
+          >
+            Закрыть архив
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Lucide Icon auto instantiator and master static script link -->
+    <script src="script.js"></script>
+  </body>
+</html>
